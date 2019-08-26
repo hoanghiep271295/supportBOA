@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="icon.png" alt="Logo">
+        </div>
+        <!-- <div class="nav-wrapper">
+            <span class="icon-menu"></span>
+            <nav class="user-nav" id="user-nav">
+                <a class="submit-a-request" href="https://boaclub.net/" target="_blank">Trang chủ</a>
+            </nav>
+            <a class="login" data-auth-action="signin" target="_blank" role="button" href="http://boa.club/">Web
+                game</a>
+        </div> -->
+    </header>
+
+    <main role="main">
+        <div class="container-divider"></div>
+        <div class="container">
+            <h1>
+                Report a Problem in Boa.Club
+            </h1>
+
+            <div class="form">
+                <!-- <form id="new_request" class="request-form" data-form="" data-form-type="request"
+                    action="/hc/en-us/requests" accept-charset="UTF-8" method="post"><input name="utf8" type="hidden"
+                        value="&#x2713;" /><input type="hidden" name="authenticity_token"
+                        value="hc:requests:server:Q4Mcq3G/si14Yeskcb7qS6TX9DXhj+q893M4oe7VWYEMHInh94/+Sczisq/43de3+cklkPN5t0jeIpXeMSmP2g==" /> -->
+
+
+
+                <div class="form-field string required"><label for="username">Your username</label>
+                    <input type="text" name="username" id="username" aria-required="true" />
+                </div>
+
+                <div class="form-field string required"><label for="phone">Your phone number</label>
+                    <input type="tel" name="phone" id="phone" aria-required="true" />
+                </div>
+
+                <div class="suggestion-list" data-hc-class="searchbox" data-hc-suggestion-list="true"></div>
+                <div class="form-field text  required  request_description">
+                    <label id="request_description_label" for="request_description">Description</label>
+                    <textarea name="description" id="description" aria-required="true" rows="4"> </textarea>
+                    <p id="request_description_hint">Please try to be as specific as possible. For bugs or lost items,
+                        describe how they happened step-by-step. </p>
+                </div>
+
+                <!-- <div class="form-field string  optional  request_custom_fields_77096567">
+                    <label id="request_custom_fields_77096567_label" for="request_custom_fields_77096567">Player
+                        Identifier</label>
+                    <input type="text" name="request[custom_fields][77096567]" id="request_custom_fields_77096567"
+                        aria-required="false" aria-describedby="request_custom_fields_77096567_hint"
+                        aria-labelledby="request_custom_fields_77096567_label" />
+
+                    <p id="request_custom_fields_77096567_hint">Please enter your unique user ID or username here.
+                        It is usually available in the app's Settings.</p>
+                </div> -->
+
+                <!-- 
+                <div class="form-field">
+                    <label for="request-attachments">Attachments</label>
+                    <div id="upload-dropzone" class="upload-dropzone">
+                        <input type="file" multiple="true" id="request-attachments" data-fileupload="true"
+                            data-dropzone="upload-dropzone" data-error="upload-error"
+                            data-create-url="/hc/en-us/request_uploads" data-name="request[attachments][]"
+                            data-pool="request-attachments-pool" data-delete-confirm-msg=""
+                            aria-describedby="upload-error" />
+                        <span>
+                            <a>Add file</a> or drop files here
+                        </span>
+                    </div>
+
+                    <div id="upload-error" class="notification notification-error notification-inline">
+                        <span data-upload-error-message></span>
+                    </div>
+
+
+                    <ul id="request-attachments-pool" class="upload-pool" data-template="upload-template"></ul>
+
+                    <script type="text/html" id="upload-template">
+                    <li class="upload-item" data-upload-item>
+                    <a class="upload-link" target="_blank" data-upload-link></a>
+                    <p class="upload-path" data-upload-path></p>
+                    <p class="upload-path" data-upload-size></p>
+                    <p data-upload-issue class="notification notification-alert notification-inline" aria-hidden="true"></p>
+                    <span class="upload-remove" data-upload-remove></span>
+                    <div class="upload-progress" data-upload-progress></div>
+                    <input type="hidden">
+                    </li>
+                    </script>
+                </div> -->
+
+
+                <footer>
+                    <!-- <input type="submit" name="commit" value="Submit" /> -->
+
+                    <!-- <script src="https://www.recaptcha.net/recaptcha/api.js" async defer></script> -->
+                    <!-- <script>
+                        var invisibleRecaptchaSubmit = function () {
+                            var closestForm = function (ele) {
+                                var curEle = ele.parentNode;
+                                while (curEle.nodeName !== 'FORM' && curEle.nodeName !== 'BODY') {
+                                    curEle = curEle.parentNode;
+                                }
+                                return curEle.nodeName === 'FORM' ? curEle : null
+                            };
+
+                            var eles = document.getElementsByClassName('g-recaptcha');
+                            if (eles.length > 0) {
+                                var form = closestForm(eles[0]);
+                                if (form) {
+                                    form.submit();
+                                }
+                            }
+                        };
+                    </script> -->
+
+                    <button type="button" class="btnSubmit" onclick="submit()">Submit</button>
+                    <script>
+                        function submit() {
+                            var username = document.getElementById("username").value;
+                            var phone = document.getElementById("phone").value;
+                            var des = document.getElementById("description").value;
+                            if (!username.toString()) {
+                                document.getElementById("username").focus();
+                                alert('Username you have entered is not valid!');
+                                return;
+                            }
+                            if (!phone.toString()) {
+                                document.getElementById("phone").focus();
+                                alert('Phone number you have entered is not valid!');
+                                return;
+                            }
+                            var phoneRe = /^(0|84)+(\d{9})$/;
+                            if (!phoneRe.test(String(phone))) {
+                                document.getElementById("phone").focus();
+                                alert('Phone number you have entered is not valid!');
+                                return;
+                            }
+
+                            if (!des.toString()) {
+                                document.getElementById("description").focus();
+                                alert('Description you have entered is not valid!');
+                                return;
+                            }
+                            document.getElementById("username").value = "";
+                            document.getElementById("phone").value = "";
+                            document.getElementById("description").value = "";
+
+                            alert('Your message has been delivered');
+                            // document.getElementById("demo").innerHTML = "Hello World";
+                        }
+                    </script>
+                </footer>
+
+                </form>
+
+            </div>
+        </div>
+
+    </main>
+
+</body>
+
+</html>
